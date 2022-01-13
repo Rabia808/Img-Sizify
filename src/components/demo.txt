@@ -1,0 +1,25 @@
+ {originalImageFile ? (
+          <>
+            <img className="uploaded" src={originalImageFile} alt="Uploaded" />
+            <Button
+              name="Compress Image"
+              onClick={(e) => {
+                handleCompressImage(e);
+              }}
+            />
+          </>
+        ) : compressedImage ? (
+          <>
+            <img className="uploaded" src={compressedImage} alt="compressed" />
+            <Button name="Download" onClick={() => console.log("clicked")}>
+              {/* <a href={UploadSvg} download="final.svg">
+              {""}
+            </a> */}
+            </Button>
+          </>
+        ) : (
+          <>
+            <img className="svg" src={UploadSvg} alt="Upload" />
+            <Button name="Upload Image" onClick={uploadImageHandler} />
+          </>
+        )}
