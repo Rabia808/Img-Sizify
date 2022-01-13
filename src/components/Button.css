@@ -1,0 +1,20 @@
+.btn {
+  width: 200px;
+  height: 40px;
+  left: 530px;
+  top: 731px;
+  color: white;
+  font-size: 20px;
+  font-family: Roboto;
+  font-weight: bold;
+  text-align: center;
+  background: #6c63ff;
+  border-radius: 10px;
+  border: none;
+  transition: 0.5s all ease-in;
+}
+
+.btn:hover {
+  background-color: #6c63ff;
+  transform: scale(1.1);
+}
