@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Img-Sizify/static/css/main.b4b11017.css",
+    "main.js": "/Img-Sizify/static/js/main.918014d4.js",
+    "static/media/final.svg": "/Img-Sizify/static/media/final.441017cdbc9a1dc44ccab12130adfc2f.svg",
+    "index.html": "/Img-Sizify/index.html",
+    "main.b4b11017.css.map": "/Img-Sizify/static/css/main.b4b11017.css.map",
+    "main.918014d4.js.map": "/Img-Sizify/static/js/main.918014d4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b4b11017.css",
+    "static/js/main.918014d4.js"
+  ]
+}
