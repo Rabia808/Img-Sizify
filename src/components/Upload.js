@@ -6,12 +6,13 @@ import imageCompression from "browser-image-compression";
 import { saveAs } from "file-saver";
 
 const Upload = (props) => {
+  // States------------------------------------------------------------------>
   const [originalImage, setOriginalImage] = useState("");
   const [originalImageFile, setOriginalImageFile] = useState("");
   const [compressedImage, setCompressedImage] = useState("");
   const [fileName, setFileName] = useState("");
 
-  // tareting file input from upload button-------------------------------------------------------------------------->>
+  // targeting file input from upload button-------------------------------------------------------------------------->>
 
   const uploadImageHandler = () => {
     document.getElementById("select-file").click();
@@ -42,28 +43,21 @@ const Upload = (props) => {
     let output;
     imageCompression(originalImage, options).then((x) => {
       output = x;
-      const downloadLink = URL.createObjectURL(output);
-      // console.log(downloadLink);
+      const downloadLink = URL.createObjectURL(output); //Generating blob file--->
       setOriginalImageFile(false);
       setCompressedImage(downloadLink);
-      // console.log(compressedImage);
     });
-    // setOriginalImage("");
-    // console.log(compressedImage);
-    // console.log("image compressed");
   };
 
+  // Download the imamge------------------------------------------------------------>>
   const downloadImage = () => {
-    saveAs(compressedImage, "Compressed_" + fileName); // Put your image url here.
+    saveAs(compressedImage, "Compressed_" + fileName);
   };
-
-  // const downloadImage = () => {
-  //   saveAs({ compressedImage }, `${fileName}Compressed.jpg`);
-  // };
 
   return (
     <div className="upload">
       <section>
+        {/* Checking for Uploaded file------------------------------------------------------>> */}
         {originalImageFile ? (
           <>
             <img className="uploaded" src={originalImageFile} alt="Uploaded" />
@@ -74,47 +68,22 @@ const Upload = (props) => {
               }}
             />
           </>
-        ) : compressedImage ? (
+        ) : // Checking for compressed file--------------------------------------------------------------->>
+        compressedImage ? (
           <>
             <img className="uploaded" src={compressedImage} alt="compressed" />
             <Button name="Download" onClick={downloadImage}></Button>
           </>
         ) : (
+          // Default home page---------------------------------------------------->>
           <>
             <img className="svg" src={UploadSvg} alt="Upload" />
             <Button name="Upload Image" onClick={uploadImageHandler} />
           </>
         )}
-        {/* ---------------------------------------------------------------------------------- */}
-        {/* {originalImageFile && !compressedImage && !originalImage && (
-          <>
-            <img className="uploaded" src={originalImageFile} alt="Uploaded" />
-            <Button
-              name="Compress Image"
-              onClick={(e) => {
-                handleCompressImage(e);
-              }}
-            />
-          </>
-        )}
-        {compressedImage && (
-          <>
-            <img className="uploaded" src={compressedImage} alt="compressed" />
-            <Button
-              name="Download"
-              onClick={() => console.log("clicked")}
-            ></Button>
-          </>
-        )}
-        {originalImage && (
-          <>
-            <img className="svg" src={UploadSvg} alt="Upload" />
-            <Button name="Upload Image" onClick={uploadImageHandler} />
-          </>
-        )} */}
-        {/* { (!originalFile && compressedFile) && component} */}
       </section>
 
+      {/* file upload----------------------------------------------------->> */}
       <input
         id="select-file"
         type="file"

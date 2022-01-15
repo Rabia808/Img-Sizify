@@ -25,6 +25,10 @@
   font-family: Satisfy;
 }
 
+.title:hover {
+  cursor: pointer;
+}
+
 .home-btn {
   margin-right: 30px;
   border: none;
